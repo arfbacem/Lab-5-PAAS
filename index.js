@@ -6,8 +6,11 @@ const cors = require('cors')
 const server = express()
 const port = process.env.PORT || 8000
 
+const testRouter = require('./route')
+
 server.use(cors())
 server.use(express.json())
+server.use('/test', testRouter)
 
 server.get('/', (req, res) => {
     res.send('<h1> This is a test application </h1>')
